@@ -24,6 +24,7 @@ RUN apt-get update \
     python \
     rsync \
     wget \
+    iputils-ping \
     vim \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
