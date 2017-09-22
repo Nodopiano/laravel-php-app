@@ -24,6 +24,7 @@ RUN apt-get update \
     python \
     rsync \
     wget \
+    vim \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
     && apt-get install -y php7.0-fpm php7.0-cli php7.0-mcrypt php7.0-gd php7.0-mysql \
