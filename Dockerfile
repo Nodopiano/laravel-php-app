@@ -37,7 +37,6 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && echo "daemon off;" >> /etc/nginx/nginx.conf \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
@@ -62,6 +61,7 @@ COPY docker/php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
 
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/start-container /usr/local/bin/start-container
+COPY docker/nginx.conf /etc/nginx/nginx.conf
 RUN chmod +x /usr/local/bin/start-container
 
 EXPOSE 80
