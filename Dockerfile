@@ -16,7 +16,6 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get update \
     && apt-get install -y -q --no-install-recommends nginx curl zip unzip git software-properties-common supervisor sqlite3 openssh-client  \
     libssl-dev \
-    build-essential \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -37,6 +36,7 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get clean \
     && apt-get autoclean \
+    && echo "daemon off;" >> /etc/nginx/nginx.conf \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
@@ -53,7 +53,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | b
     && nvm use default \
     && npm install -g yarn \
     && ls $NVM_DIR/versions/
-
+#
 ENV NODE_PATH $NVM_DIR/versions/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/versions/v$NODE_VERSION/bin:$PATH
 
