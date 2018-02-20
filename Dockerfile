@@ -27,9 +27,9 @@ RUN apt-get update \
     vim \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
-    && apt-get install -y php7.0-fpm php7.0-cli php7.0-mcrypt php7.0-gd php7.0-mysql \
-       php7.0-pgsql php7.0-imap php-memcached php7.0-mbstring php7.0-xml php7.0-curl \
-       php7.0-sqlite3 php7.0-xdebug php7.0-zip \
+    && apt-get install -y php7.1-fpm php7.0-cli php7.0-mcrypt php7.0-gd php7.0-mysql \
+       php7.1-pgsql php7.0-imap php-memcached php7.0-mbstring php7.0-xml php7.0-curl \
+       php7.1-sqlite3 php7.0-xdebug php7.0-zip \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && mkdir /run/php \
     && apt-get remove -y --purge software-properties-common \
@@ -58,7 +58,7 @@ ENV NODE_PATH $NVM_DIR/versions/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/versions/v$NODE_VERSION/bin:$PATH
 
 COPY docker/vhost.conf /etc/nginx/sites-available/default
-COPY docker/php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
+COPY docker/php-fpm.conf /etc/php/7.1/fpm/php-fpm.conf
 
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/start-container /usr/local/bin/start-container
