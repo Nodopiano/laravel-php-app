@@ -42,7 +42,7 @@ RUN apt-get update \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 6.9.2
+ENV NODE_VERSION 8.6.0
 
 # Install nvm with node and npm
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash \

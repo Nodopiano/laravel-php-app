@@ -23,7 +23,7 @@ This image is meant to be used as a base to build your production app image, but
 - PDO extensions for: sqlite, mysql, sqlserver, postgresql
 - supervisor
 - NVM
-- nodejs 6.9.2 and yarn
+- nodejs 8.6.0 and yarn
 
 ## Customization
 
